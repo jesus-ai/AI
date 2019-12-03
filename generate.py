@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from textgenrnn import textgenrnn
 
 from configs import model_cfg
@@ -18,23 +16,28 @@ textgen = textgenrnn(
 prefix = None  # if you want each generated text to start with a given seed text
 
 if train_cfg['line_delimited']:
-    n = 2
+    n = 1000
     max_gen_length = 60 if model_cfg['word_level'] else 300
 else:
     n = 1
     max_gen_length = 2000 if model_cfg['word_level'] else 10000
 
-timestring = datetime.now().strftime('%Y%m%d_%H%M%S')
-gen_file = 'items/{}_gentext_{}.txt'.format(model_name, timestring)
 
-generated = textgen.generate(
-    n=n,
-    temperature=temperature,
-    max_gen_length=max_gen_length,
-    prefix=prefix,
-    return_as_list=True
-)
+def generate_from_model():
+    return textgen.generate(
+        n=n,
+        temperature=temperature,
+        max_gen_length=max_gen_length,
+        prefix=prefix,
+        return_as_list=True
+    )
 
-output = "\n".join(generated)
 
-print(output)
+def write_to_database(saying):
+    return None
+
+
+generated = generate_from_model()
+
+for say in generated:
+    write_to_database(saying=say)
