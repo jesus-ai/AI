@@ -1,10 +1,20 @@
+import itertools
+import os
+from time import sleep
+
 from textgenrnn import textgenrnn
 
 from configs import model_cfg
 from configs import model_name
-from configs import train_cfg
 from configs import paths
 from configs import temperature
+from configs import train_cfg
+
+# items is loop_times * 1000
+loop_times = 100
+
+print("Generating {} items for the database".format(loop_times * 1000))
+# exit(0)
 
 textgen = textgenrnn(
     name=model_name,
@@ -34,10 +44,17 @@ def generate_from_model():
 
 
 def write_to_database(saying):
+    print(saying)
+    os.system("php insert_db.php {}".format(saying))
     return None
 
 
-generated = generate_from_model()
+# Loop a few times so we have a lot of data
+# every generation is 1000 items
+for _ in itertools.repeat(None, loop_times):
+    generated = generate_from_model()
 
-for say in generated:
-    write_to_database(saying=say)
+    for say in generated:
+        write_to_database(saying=say)
+        # sleep for 0.5 seconds to not spam the database
+        sleep(0.5)
