@@ -1,6 +1,5 @@
 model_name = 'sayai'
 
-
 # this temperature schedule cycles between 1 very unexpected token, 1 unexpected token, 2 expected tokens, repeat.
 # changing the temperature schedule can result in wildly different output!
 temperature = [1.0, 1.0, 1.0, 1.0]

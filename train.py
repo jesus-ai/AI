@@ -37,7 +37,7 @@ class Train:
             max_length=model_cfg['max_length'],
             dim_embeddings=100,
             word_level=model_cfg['word_level'])
-			
+
         prefix = None  # if you want each generated text to start with a given seed text
 
         if train_cfg['line_delimited']:
