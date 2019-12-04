@@ -8,7 +8,7 @@ from train import Train as Ai
 
 def md5(fname):
     if not os.path.isfile(fname):
-        return hashlib.md5(b'No file found.').hexdigest()
+        return None
 
     with open(fname, "rb") as f:
         return hashlib.md5(f.read()).hexdigest()
