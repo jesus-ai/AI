@@ -5,9 +5,9 @@ model_name = 'sayai'
 temperature = [1.0, 0.8, 0.5, 0.2]
 
 paths = {
-    'weights_path': None,
-    'vocab_path': None,
-    'config_path': None,
+    'weights_path': 'sayai_weights.hdf5',
+    'vocab_path': 'sayai_vocab.json',
+    'config_path': 'sayai_config.json',
 }
 
 model_cfg = {
