@@ -14,6 +14,7 @@ google-pasta==0.1.8
 grpcio==1.25.0
 h5py==2.10.0
 idna==2.8
+idna-ssl==1.1.0
 joblib==0.14.0
 Keras==2.3.1
 Keras-Applications==1.0.8
@@ -32,11 +33,13 @@ pyasn1-modules==0.2.7
 PyAutoGUI==0.9.47
 PyGetWindow==0.0.7
 PyMsgBox==1.0.7
+PyMySQL==0.9.3
 pyperclip==1.7.0
 PyRect==0.1.4
 PyScreeze==0.1.22
 pytesseract==0.3.0
 python-dotenv==0.10.3
+python3-xlib==0.15
 PyTweening==1.0.3
 PyYAML==5.2
 requests==2.22.0
@@ -51,6 +54,7 @@ tensorflow-gpu==1.15.0
 termcolor==1.1.0
 textgenrnn==1.5.0
 tqdm==4.40.0
+typing-extensions==3.7.4.1
 urllib3==1.25.7
 websockets==6.0
 Werkzeug==0.16.0

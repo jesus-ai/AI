@@ -1,6 +1,4 @@
 import itertools
-import os
-from time import sleep
 
 from textgenrnn import textgenrnn
 
@@ -9,11 +7,14 @@ from configs import model_name
 from configs import paths
 from configs import temperature
 from configs import train_cfg
+from sql import insert_saying
 
 # items is loop_times * 1000
-loop_times = 100
+loop_times = 1
+# line_split_count = 1
+line_split_count = 1000
 
-print("Generating {} items for the database".format(loop_times * 1000))
+print("Generating {} items for the database".format(loop_times * line_split_count))
 # exit(0)
 
 textgen = textgenrnn(
@@ -26,7 +27,7 @@ textgen = textgenrnn(
 prefix = None  # if you want each generated text to start with a given seed text
 
 if train_cfg['line_delimited']:
-    n = 1000
+    n = line_split_count
     max_gen_length = 60 if model_cfg['word_level'] else 300
 else:
     n = 1
@@ -45,7 +46,7 @@ def generate_from_model():
 
 def write_to_database(saying):
     print(saying)
-    os.system("php insert_db.php {}".format(saying))
+    insert_saying(saying)
     return None
 
 
@@ -57,4 +58,4 @@ for _ in itertools.repeat(None, loop_times):
     for say in generated:
         write_to_database(saying=say)
         # sleep for 0.5 seconds to not spam the database
-        sleep(0.5)
+        # sleep(0.5)
