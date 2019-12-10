@@ -14,15 +14,16 @@ connection = pymysql.connect(host=SQL_HOST,
 
 
 def insert_saying(saying):
-    try:
-        with connection.cursor() as cursor:
-            # Create a new record
-            # language=MariaDB
-            sql = "INSERT INTO `sayings` (`SayingText`, `SayingDate`) VALUES (%s, CURRENT_DATE())"
-            cursor.execute(sql, (saying))
+    if not connection.open:
+        print("Reconnecting to database")
+        connection.ping(reconnect=True)
 
-        # connection is not autocommit by default. So you must commit to save
-        # your changes.
-        connection.commit()
-    finally:
-        connection.close()
+    with connection.cursor() as cursor:
+        # Create a new record
+        # language=MariaDB
+        sql = "INSERT INTO `sayings` (`SayingText`, `SayingDate`) VALUES (%s, CURRENT_DATE())"
+        cursor.execute(sql, saying)
+
+    # connection is not autocommit by default. So you must commit to save
+    # your changes.
+    connection.commit()

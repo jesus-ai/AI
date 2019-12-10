@@ -8,6 +8,7 @@ from configs import paths
 from configs import temperature
 from configs import train_cfg
 from sql import insert_saying
+from sql import connection
 
 # items is loop_times * 1000
 loop_times = 1
@@ -55,7 +56,10 @@ def write_to_database(saying):
 for _ in itertools.repeat(None, loop_times):
     generated = generate_from_model()
 
-    for say in generated:
-        write_to_database(saying=say)
-        # sleep for 0.5 seconds to not spam the database
-        # sleep(0.5)
+    try:
+        for say in generated:
+            write_to_database(saying=say)
+            # sleep for 0.5 seconds to not spam the database
+            # sleep(0.5)
+    finally:
+        connection.close()
