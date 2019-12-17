@@ -7,7 +7,7 @@ from train import Train as Ai
 
 def get_output_hash():
     response = urllib.request.urlopen('https://jesus-ai.github.io/scraper/output.txt.md5')
-    return response.read()
+    return response.read().decode('utf-8')
 
 
 # directory = 'data.txt'
@@ -16,6 +16,8 @@ directory = keras_utils.get_file(
     origin='https://jesus-ai.github.io/scraper/output.txt',
     md5_hash=get_output_hash()
 )
+
+print('data.txt location: {}'.format(directory))
 
 ai = Ai()
 
