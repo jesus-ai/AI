@@ -23,7 +23,7 @@ class Train:
 
         train_function(
             file_path=file_name,
-            new_model=True,
+            new_model=model_cfg['create_new'],
             num_epochs=train_cfg['num_epochs'],
             gen_epochs=train_cfg['gen_epochs'],
             batch_size=train_cfg['batch_size'],
