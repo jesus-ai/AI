@@ -9,10 +9,11 @@ from configs import temperature
 from configs import train_cfg
 from sql import insert_saying
 
-# items is loop_times * 1000
+# items is loop_times * line_split_count
 loop_times = 1
 # line_split_count = 1
-line_split_count = 1000
+# line_split_count = 1000
+line_split_count = 500
 
 print("Generating {} items for the database".format(loop_times * line_split_count))
 # exit(0)
