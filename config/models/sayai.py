@@ -4,12 +4,6 @@ model_name = 'sayai'
 # changing the temperature schedule can result in wildly different output!
 temperature = [1.0, 0.8, 0.5, 0.2]
 
-paths = {
-    'weights_path': 'sayai_weights.hdf5',
-    'vocab_path': 'sayai_vocab.json',
-    'config_path': 'sayai_config.json',
-}
-
 model_cfg = {
     'create_new': False,  # set to True if you want to make a new model
     'word_level': False,  # set to True if want to train a word-level model (requires more data and smaller max_length)
