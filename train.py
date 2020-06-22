@@ -2,11 +2,7 @@ from datetime import datetime
 
 from textgenrnn import textgenrnn
 
-from configs import model_cfg
-from configs import model_name
-from configs import train_cfg
-from configs import paths
-from configs import temperature
+from config.model import name as model_name, model_cfg, train_cfg, paths, temperature
 
 
 class Train:

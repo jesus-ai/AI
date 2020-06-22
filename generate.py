@@ -2,11 +2,7 @@ import itertools
 
 from textgenrnn import textgenrnn
 
-from configs import model_cfg
-from configs import model_name
-from configs import paths
-from configs import temperature
-from configs import train_cfg
+from config.model import name as model_name, model_cfg, train_cfg, paths, temperature
 from sql import insert_saying
 
 # items is loop_times * line_split_count

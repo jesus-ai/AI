@@ -1,11 +1,6 @@
 import pymysql
 
-# SQL_HOST = 'localhost'
-# SQL_USER = 'duncte123'
-# SQL_PASS = ''
-# SQL_DB = 'sayai'
-
-
+from config.sql import SQL_HOST, SQL_USER, SQL_PASS, SQL_DB
 
 connection = pymysql.connect(host=SQL_HOST,
                              user=SQL_USER,
