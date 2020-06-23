@@ -22,8 +22,6 @@ textgen = textgenrnn(
     weights_path=paths['weights_path'],
 )
 
-prefix = None  # if you want each generated text to start with a given seed text
-
 if train_cfg['line_delimited']:
     n = line_split_count
     max_gen_length = 60 if model_cfg['word_level'] else 300
@@ -37,7 +35,7 @@ def generate_from_model():
         n=n,
         temperature=temperature,
         max_gen_length=max_gen_length,
-        prefix=prefix,
+        prefix=None,
         return_as_list=True
     )
 
