@@ -2,13 +2,14 @@ import pymysql
 
 from config.sql import SQL_HOST, SQL_USER, SQL_PASS, SQL_DB
 
-connection = pymysql.connect(host=SQL_HOST,
-                             user=SQL_USER,
-                             password=SQL_PASS,
-                             db=SQL_DB,
-                             charset='utf8mb4',
-                             cursorclass=pymysql.cursors.DictCursor)
-connection.close()
+if SQL_HOST is not None:
+    connection = pymysql.connect(host=SQL_HOST,
+                                 user=SQL_USER,
+                                 password=SQL_PASS,
+                                 db=SQL_DB,
+                                 charset='utf8mb4',
+                                 cursorclass=pymysql.cursors.DictCursor)
+    connection.close()
 
 
 def insert_saying(saying):

@@ -11,7 +11,7 @@ temperature = [1.0, 0.8, 0.5, 0.2]
 
 model_cfg = {
     'create_new': False,  # set to True if you want to make a new model
-    'word_level': False,  # set to True if want to train a word-level model (requires more data and smaller max_length)
+    'word_level': True,  # set to True if want to train a word-level model (requires more data and smaller max_length)
     'rnn_size': 128,  # number of LSTM cells of each layer (128/256 recommended)
     'rnn_layers': 6,  # number of LSTM layers (>=2 recommended)
     'rnn_bidirectional': False,  # consider text both forwards and backward, can give a training boost

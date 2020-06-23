@@ -44,7 +44,7 @@ def generate_from_model():
 
 def write_to_database(saying):
     print(saying)
-    #insert_saying(saying)
+    # insert_saying(saying)
     return None
 
 
