@@ -12,7 +12,7 @@ if SQL_HOST is not None:
     connection.close()
 
 
-def insert_sayings(sayings):
+def insert_sayings(sayings, db_name='sayings'):
     try:
         if not connection.open:
             connection.ping(reconnect=True)
@@ -21,7 +21,7 @@ def insert_sayings(sayings):
             # Create a new record
             for saying in sayings:
                 # language=MariaDB
-                sql = "INSERT INTO `sayings` (`SayingText`, `SayingDate`) VALUES (%s, CURRENT_DATE())"
+                sql = f"INSERT INTO `{db_name}` (`SayingText`, `SayingDate`) VALUES (%s, CURRENT_DATE())"
                 cursor.execute(sql, saying)
 
         # connection is not autocommit by default. So you must commit to save
