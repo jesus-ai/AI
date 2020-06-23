@@ -5,9 +5,9 @@ import math
 from tensorflow.keras import utils as keras_utils
 
 from train import Train as Ai
+from config.model import dataset as url
 
 query = '?r={}'.format(math.floor(random.random() * 10000))
-url = 'https://jesus-ai.github.io/scraper/output2.txt'
 
 
 def get_output_hash():
