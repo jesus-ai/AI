@@ -13,7 +13,8 @@ from sql import insert_saying
 loop_times = 1
 # line_split_count = 1
 # line_split_count = 1000
-line_split_count = 500
+# line_split_count = 500
+line_split_count = 5
 
 print("Generating {} items for the database".format(loop_times * line_split_count))
 # exit(0)
@@ -47,7 +48,7 @@ def generate_from_model():
 
 def write_to_database(saying):
     print(saying)
-    insert_saying(saying)
+    #insert_saying(saying)
     return None
 
 

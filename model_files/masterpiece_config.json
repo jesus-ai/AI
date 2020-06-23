@@ -1,0 +1,1 @@
+{"rnn_layers": 6, "rnn_size": 256, "rnn_bidirectional": false, "max_length": 7, "max_words": 10000, "dim_embeddings": 100, "word_level": true, "single_text": false, "name": "masterpiece"}
