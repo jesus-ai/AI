@@ -12,16 +12,17 @@ if SQL_HOST is not None:
     connection.close()
 
 
-def insert_saying(saying):
+def insert_sayings(sayings):
     try:
         if not connection.open:
             connection.ping(reconnect=True)
 
         with connection.cursor() as cursor:
             # Create a new record
-            # language=MariaDB
-            sql = "INSERT INTO `sayings` (`SayingText`, `SayingDate`) VALUES (%s, CURRENT_DATE())"
-            cursor.execute(sql, saying)
+            for saying in sayings:
+                # language=MariaDB
+                sql = "INSERT INTO `sayings` (`SayingText`, `SayingDate`) VALUES (%s, CURRENT_DATE())"
+                cursor.execute(sql, saying)
 
         # connection is not autocommit by default. So you must commit to save
         # your changes.

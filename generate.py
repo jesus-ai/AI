@@ -3,7 +3,7 @@ import itertools
 from textgenrnn import textgenrnn
 
 from config.model import name as model_name, model_cfg, train_cfg, paths, temperature
-from sql import insert_saying
+from sql import insert_sayings
 
 # items is loop_times * line_split_count
 loop_times = 1
@@ -42,18 +42,16 @@ def generate_from_model():
     )
 
 
-def write_to_database(saying):
-    print(saying)
-    # insert_saying(saying)
-    return None
-
-
 # Loop a few times so we have a lot of data
 # every generation is 1000 items
 for _ in itertools.repeat(None, loop_times):
     generated = generate_from_model()
 
-    for say in generated:
-        write_to_database(saying=say)
+    # insert_sayings(generated)
+
+    for saying in generated:
+        print()
+        print(saying)
+        print()
         # sleep for 0.5 seconds to not spam the database
         # sleep(0.5)
