@@ -2,12 +2,8 @@ import itertools
 
 from textgenrnn import textgenrnn
 
-from configs import model_cfg
-from configs import model_name
-from configs import paths
-from configs import temperature
-from configs import train_cfg
-from sql import insert_saying
+from config.model import name as model_name, model_cfg, train_cfg, paths, temperature
+from sql import insert_sayings
 
 # items is loop_times * line_split_count
 loop_times = 1
@@ -26,8 +22,6 @@ textgen = textgenrnn(
     weights_path=paths['weights_path'],
 )
 
-prefix = None  # if you want each generated text to start with a given seed text
-
 if train_cfg['line_delimited']:
     n = line_split_count
     max_gen_length = 60 if model_cfg['word_level'] else 300
@@ -41,15 +35,9 @@ def generate_from_model():
         n=n,
         temperature=temperature,
         max_gen_length=max_gen_length,
-        prefix=prefix,
+        prefix=None,
         return_as_list=True
     )
-
-
-def write_to_database(saying):
-    print(saying)
-    #insert_saying(saying)
-    return None
 
 
 # Loop a few times so we have a lot of data
@@ -57,7 +45,11 @@ def write_to_database(saying):
 for _ in itertools.repeat(None, loop_times):
     generated = generate_from_model()
 
-    for say in generated:
-        write_to_database(saying=say)
+    # insert_sayings(generated)
+
+    for saying in generated:
+        print()
+        print(saying)
+        print()
         # sleep for 0.5 seconds to not spam the database
         # sleep(0.5)
