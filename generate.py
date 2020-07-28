@@ -10,7 +10,8 @@ loop_times = 1
 # line_split_count = 1
 # line_split_count = 1000
 # line_split_count = 500
-line_split_count = 5
+# line_split_count = 5
+line_split_count = 10
 
 print("Generating {} items for the database".format(loop_times * line_split_count))
 # exit(0)
@@ -46,6 +47,7 @@ for _ in itertools.repeat(None, loop_times):
     generated = generate_from_model()
 
     # insert_sayings(generated)
+    insert_sayings(generated, 'sayings_bible')
 
     for saying in generated:
         print()
