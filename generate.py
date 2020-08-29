@@ -11,7 +11,7 @@ loop_times = 1
 # line_split_count = 1000
 # line_split_count = 500
 # line_split_count = 5
-line_split_count = 10
+line_split_count = 20
 
 print("Generating {} items for the database".format(loop_times * line_split_count))
 # exit(0)
