@@ -40,7 +40,7 @@ termcolor==1.1.0
 git+git://github.com/minimaxir/textgenrnn.git@ee8b9e806d109c25566581f358a4a72b6f03929a#egg=textgenrnn
 threadpoolctl==2.1.0
 tqdm==4.48.0
-urllib3==1.25.10
+urllib3==1.26.5
 Werkzeug==1.0.1
 wrapt==1.12.1
 zipp==3.1.0
