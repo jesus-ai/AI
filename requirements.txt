@@ -35,7 +35,7 @@ tensorboard==2.3.0
 tensorboard-plugin-wit==1.7.0
 tensorflow==2.3.1
 tensorflow-estimator==2.3.0
-tensorflow-gpu==2.3.1
+tensorflow-gpu==2.5.3
 termcolor==1.1.0
 git+git://github.com/minimaxir/textgenrnn.git@ee8b9e806d109c25566581f358a4a72b6f03929a#egg=textgenrnn
 threadpoolctl==2.1.0
